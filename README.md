@@ -36,3 +36,9 @@ public class DemoTest {
     private ClientServiceImp clientServiceImp = new clientServiceImp();
 }
 ```
+* <a name="stubbing"></a>
+The two syntaxes for stubbing are roughly equivalent. However, you can always use doReturn/when for stubbing; but there are cases where you can't use when/thenReturn. Stubbing void methods is one such. Others include use with Mockito spies, and stubbing the same method more than once.
+One thing that when/thenReturn gives you, that doReturn/when doesn't, is type-checking of the value that you're returning, at compile time. However, I believe this is of almost no value - if you've got the type wrong, you'll find out as soon as you run your test.
+I strongly recommend only using doReturn/when. There is no point in learning two syntaxes when one will do.
+https://stackoverflow.com/questions/20353846/mockito-difference-between-doreturn-and-when
+
